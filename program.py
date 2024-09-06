@@ -20,10 +20,10 @@ while spelarLiv > 0 and datorLiv > 0:
 
     guessValue = input("1 för större, 0 för mindre")
     print(guessValue)
-    break
+    
     spelareTärning = random.randint(1,6)
     print(spelareTärning)
-
+#allt är Henriks fel kanske
     if guessValue == 1:
         if spelareTärning > datorTärning:
             datorLiv -= spelareTärning
