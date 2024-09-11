@@ -24,18 +24,31 @@ while spelarLiv > 0 and datorLiv > 0:
     spelareTärning = random.randint(1,6)
     print(spelareTärning)
 #allt är Henriks fel kanske
-    if guessValue == 1:
+    if guessValue == "1":
         if spelareTärning > datorTärning:
             datorLiv -= spelareTärning
+          
         else: 
             spelarLiv -= spelareTärning
-    if guessValue == 0:
+    
+    if guessValue == "0":
         if spelareTärning < datorTärning:
             datorLiv -= spelareTärning
         else:
             spelarLiv -= spelareTärning
 
-    print(datorLiv)
-    print(spelarLiv)
+    if spelareTärning == datorTärning:
+        spelarLiv -= spelareTärning * 2
+
+
+    if spelarLiv <= 0:
+        print("Du dog pucko")
+
+    if datorLiv <= 0:
+        print("Du vann pucko")
+        
+
+    print("Dator Liv: ", datorLiv)
+    print("Spelare Liv: ", spelarLiv)
 
     
