@@ -1,11 +1,15 @@
-#   179  mkdir code
-#   180  cd code
-#   181  mkdir te22-tp1-intro/
-#   182  cd te22-tp1-intro
-#   183  code .
-
 import math
 import random
+import time
+
+import sys
+from colorama import Fore, init, AnsiToWin32
+init(wrap=False)
+stream = AnsiToWin32(sys.stderr).stream
+
+
+
+print(Fore.WHITE + "(",Fore.BLUE + "•",Fore.WHITE + ")", "  ",Fore.WHITE + "(",Fore.BLUE + "•",Fore.WHITE + ")",  sep="")
 
 spelarLiv = 30
 datorLiv = 30
@@ -13,16 +17,24 @@ datorLiv = 30
 datorTärning = 0
 spelareTärning = 0
 
-while spelarLiv > 0 and datorLiv > 0:
-    datorTärning = random.randint(1,6)
-    print("Datorns tärningskast blev:")
-    print(datorTärning)
+rund = 1
 
-    guessValue = input("1 för större, 0 för mindre")
-    print(guessValue)
+while spelarLiv > 0 and datorLiv > 0:
+    
+    print(Fore.GREEN + "\nrunda", rund)
+    
+    datorTärning = random.randint(1,6)
+    
+    print(Fore.RED + "\nDatorns tärningskast blev:", end=" ")
+    time.sleep(2)
+    print(datorTärning)
+    time.sleep(1)
+    print(Fore.GREEN + "\n1 för större, 0 för mindre")
+    guessValue = input(Fore.BLUE + "Ditt svar: ")
+
     
     spelareTärning = random.randint(1,6)
-    print(spelareTärning)
+    print("Du slog:", spelareTärning)
 #allt är Henriks fel kanske
     if guessValue == "1":
         if spelareTärning > datorTärning:
@@ -40,15 +52,20 @@ while spelarLiv > 0 and datorLiv > 0:
     if spelareTärning == datorTärning:
         spelarLiv -= spelareTärning * 2
 
+    time.sleep(0.5)
 
     if spelarLiv <= 0:
-        print("Du dog pucko")
+        print(Fore.GREEN + "\nDu dog pucko")
+        sys.exit
 
     if datorLiv <= 0:
-        print("Du vann pucko")
-        
+        print(Fore.GREEN + "\nDu vann pucko")
+        sys.exit
 
-    print("Dator Liv: ", datorLiv)
-    print("Spelare Liv: ", spelarLiv)
 
+    print(Fore.RED + "\nDator Liv:", datorLiv)
+    print(Fore.BLUE + "Spelare Liv:", spelarLiv)
+
+    time.sleep(1)
     
+    rund += 1
