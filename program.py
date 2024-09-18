@@ -21,7 +21,7 @@ rund = 1
 
 while spelarLiv > 0 and datorLiv > 0:
     
-    print(Fore.GREEN + "\nrunda", rund)
+    print(Fore.WHITE + "\nrunda", rund)
     
     datorTärning = random.randint(1,6)
     
@@ -29,7 +29,7 @@ while spelarLiv > 0 and datorLiv > 0:
     time.sleep(2)
     print(datorTärning)
     time.sleep(1)
-    print(Fore.GREEN + "\n1 för större, 0 för mindre")
+    print(Fore.WHITE + "\n1 för större, 0 för mindre")
     guessValue = input(Fore.BLUE + "Ditt svar: ")
 
     
@@ -55,11 +55,11 @@ while spelarLiv > 0 and datorLiv > 0:
     time.sleep(0.5)
 
     if spelarLiv <= 0:
-        print(Fore.GREEN + "\nDu dog pucko")
+        print(Fore.WHITE + "\nDu dog pucko")
         sys.exit
 
     if datorLiv <= 0:
-        print(Fore.GREEN + "\nDu vann pucko")
+        print(Fore.WHITE + "\nDu vann pucko")
         sys.exit
 
 
